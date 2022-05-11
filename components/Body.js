@@ -1,15 +1,17 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 function Body() {
   return (
     <div className="flex flex-col h-auto px-10 py-28">
       <div className="flex items-center justify-evenly pb-10">
-        <img
+        <Image
           className="pr-6"
-          src="./media/hand-print.svg"
-          width={250}
-          height={100}
+          src="/media/hand-print.svg"
+          width={350}
+          height={250}
+          alt=""
         />
         <div>
           <h1 className="text-green-500 font-mono text-xl font-bold pb-4 sm:text-3xl sm:font-bold pl-6 max-w-2xl">
@@ -40,15 +42,22 @@ function Body() {
             Submit your case to allow community members to help via our DAO.
           </h2>
         </div>
-        <img className="" src="./media/man.svg" width={250} height={100} />
+        <Image
+          className=""
+          src="/media/man.svg"
+          width={350}
+          height={250}
+          alt=""
+        />
       </div>
 
       <div className="flex items-center justify-evenly py-16">
-        <img
+        <Image
           className="pr-6"
-          src="./media/BitcoinCash.svg"
-          width={250}
-          height={100}
+          src="/media/BitcoinCash.svg"
+          width={200}
+          height={200}
+          alt=""
         />
         <div>
           <h1 className="text-green-500 font-mono text-xl font-bold pb-4 sm:text-3xl sm:font-bold pl-6 max-w-2xl">

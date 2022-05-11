@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { sanityClient, urlFor } from "../lib/sanity";
+import Image from "next/image";
 
 const postsQuery = `*[_type == "post"]{
   _id,
@@ -28,11 +29,12 @@ export default function News({ posts }) {
             </h2>
           </div>
           <div>
-            <img
+            <Image
               className="hidden sm:flex rounded-full"
-              src="./media/buzz wired (300px blk-bg).png"
+              src="/media/buzz wired (300px blk-bg).png"
               width={200}
-              height={100}
+              height={200}
+              alt=""
             />
           </div>
         </div>

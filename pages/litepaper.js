@@ -1,19 +1,89 @@
 import React from "react";
+import Image from "next/image";
 
 function litepaper() {
   return (
     <>
       <div className="md:mx-20 lg:mx-40 xl:mx-72 ">
-        <img src={"./media/0001.jpg"} className="w-fit" alt="" />
-        <img src={"./media/0002.jpg"} className="w-fit" alt="" />
-        <img src={"./media/0003.jpg"} className="w-fit" alt="" />
-        <img src={"./media/0004.jpg"} className="w-fit" alt="" />
-        <img src={"./media/0005.jpg"} className="w-fit" alt="" />
-        <img src={"./media/0006.jpg"} className="w-fit" alt="" />
-        <img src={"./media/0007.jpg"} className="w-fit" alt="" />
-        <img src={"./media/0008.jpg"} className="w-fit" alt="" />
-        <img src={"./media/0009.jpg"} className="w-fit" alt="" />
-        <img src={"./media/0010.jpg"} className="w-fit" alt="" />
+        <Image
+          src={"/media/0001.jpg"}
+          width="100%"
+          height="100%"
+          objectFit="contain"
+          layout="responsive"
+          alt=""
+        />
+        <Image
+          src={"/media/0002.jpg"}
+          width="100%"
+          height="100%"
+          objectFit="contain"
+          layout="responsive"
+          alt=""
+        />
+        <Image
+          src={"/media/0003.jpg"}
+          width="100%"
+          height="100%"
+          objectFit="contain"
+          layout="responsive"
+          alt=""
+        />
+        <Image
+          src={"/media/0004.jpg"}
+          width="100%"
+          height="100%"
+          objectFit="contain"
+          layout="responsive"
+          alt=""
+        />
+        <Image
+          src={"/media/0005.jpg"}
+          width="100%"
+          height="100%"
+          objectFit="contain"
+          layout="responsive"
+          alt=""
+        />
+        <Image
+          src={"/media/0006.jpg"}
+          width="100%"
+          height="100%"
+          objectFit="contain"
+          layout="responsive"
+          alt=""
+        />
+        <Image
+          src={"/media/0007.jpg"}
+          width="100%"
+          height="100%"
+          objectFit="contain"
+          layout="responsive"
+          alt=""
+        />
+        <Image
+          src={"/media/0008.jpg"}
+          width="100%"
+          height="100%"
+          objectFit="contain"
+          layout="responsive"
+          alt=""
+        />
+        <Image
+          src={"/media/0009.jpg"}
+          width="100%"
+          height="100%"
+          objectFit="contain"
+          alt=""
+        />
+        <Image
+          src={"/media/0010.jpg"}
+          width="100%"
+          height="100%"
+          objectFit="contain"
+          layout="responsive"
+          alt=""
+        />
       </div>
 
       {/* <div className="flex flex-row m-20">
