@@ -8,18 +8,19 @@ function donate() {
     <>
       <Connectwallet />
       <div className="relative flex flex-col justify-center items-center ">
-        <video
+        {/* <video
           src="./media/video7.mp4"
           className="w-fit"
           alt=""
           autoPlay
           loop
           muted
-        />
+        /> */}
 
         {/* Flexible item */}
         <div className="absolute">
-          <div className="text-3xl font-bold text-white mb-4 drop-shadow-xl hover:animate-ping">
+          <div className="text-3xl font-bold text-black mb-4 drop-shadow-xl hover:animate-ping">
+            <br></br>
             <br></br> Donations enabled in Beta 2.0
           </div>
         </div>
