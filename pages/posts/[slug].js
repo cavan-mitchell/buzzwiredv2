@@ -6,18 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRouter } from "next/router";
 
-const postQuery = `*[_type == "post" && slug.current == $slug][0]{
-    _id,
-    title,
-    slug,
-    mainImage,
-    body,
-    publishedAt,
-    author->{
-        name,
-    }
-    
-  }`;
+
 
 export default function OnePost({ data }) {
   const router = useRouter();
@@ -28,15 +17,15 @@ export default function OnePost({ data }) {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = (dataParams) => {
     fetch("api/createComment", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(dataParams),
     });
-    alert("is this your name: ${data.name}");
+    alert(`is this your name: ${dataParams.name}`);
     router.push("/thankyou");
   };
 
@@ -132,9 +121,21 @@ export default function OnePost({ data }) {
   );
 }
 
-//This section tells Next.js which posts exist. which page to pre-build, which paths to pre-render. Don't want to use SSR for this. Gives back an array of paths which gives us all the slugs we need back.
-//Currently ISR is not used. This will refresh page ie. every 60s  -> (revalidate:60)
-export async function getStaticPaths() {
+export async function getServerSideProps({ params }) {
+  const { slug } = params;
+
+  const postQuery = `*[_type == "post" && slug.current == $slug][0]{
+    _id,
+    title,
+    slug,
+    mainImage,
+    body,
+    publishedAt,
+    author->{
+        name,
+    }
+  }`;
+
   const paths = await sanityClient.fetch(
     `*[_type == "post" && defined(slug.current)]{
             "params": {
@@ -142,17 +143,14 @@ export async function getStaticPaths() {
             }
         }`
   );
-  return {
-    paths,
-    fallback: true,
-  };
-}
-
-//Needs to be used with getStaticPaths. This takes all the slugs from getStaticPaths to than fetch the information for each page. Than we use props to populate the page with the requested data
-export async function getStaticProps({ params }) {
-  const { slug } = params;
+  console.log(paths);
   const post = await sanityClient.fetch(postQuery, { slug });
-  return { props: { data: { post }, preview: true } };
+  return {
+    props: {
+      data: { post },
+      preview: true
+    }
+  };
 }
 
 export const PortableText = (props) => (

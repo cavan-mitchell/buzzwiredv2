@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev && sanity build",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start && sanity start",
+    "start": "next start",
+    "sanity": "cd buzznextsanity && sanity start",
     "lint": "next lint"
   },
   "dependencies": {
